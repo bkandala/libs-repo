@@ -1,3 +1,3 @@
 mountpoints:
   /:
-    url: https://content.da.live/bkandala/libs-repo
+    url: https://admin.da.live/source/bkandala/libs-repo
