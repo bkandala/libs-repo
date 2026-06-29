@@ -190,3 +190,4 @@ Replace `<your-org>` with the actual GitHub org.
 
 ### `aem-eds` — preview/publish operations
 ### `da-live` — document CRUD in da.live
+## this is the initial setup
