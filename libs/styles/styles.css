@@ -1,0 +1,298 @@
+/* Shared library base styles — imported by consuming repos */
+
+/* fonts */
+@import url('fonts.css');
+
+/* fallback fonts */
+@font-face {
+  font-family: body-font-fallback;
+  size-adjust: 99.529%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: heading-font-fallback;
+  size-adjust: 88.82%;
+  src: local('Arial');
+}
+
+/* -------------------------------------------------------------------------
+   CSS Custom Properties (design tokens)
+   Consuming repos can override any of these in their own styles.css
+   ------------------------------------------------------------------------- */
+:root {
+  /* brand colors */
+  --color-brand-primary: #1473e6;
+  --color-brand-primary-hover: #0d66d0;
+  --color-brand-secondary: #e68619;
+
+  /* surface colors */
+  --color-background: #fff;
+  --color-surface-1: #f8f8f8;
+  --color-surface-2: #e8e8e8;
+  --color-surface-dark: #2c2c2c;
+
+  /* text colors */
+  --color-text-primary: #2c2c2c;
+  --color-text-secondary: #6e6e6e;
+  --color-text-inverse: #fff;
+
+  /* link colors */
+  --link-color: var(--color-brand-primary);
+  --link-hover-color: var(--color-brand-primary-hover);
+
+  /* legacy aliases (for compatibility) */
+  --background-color: var(--color-background);
+  --light-color: var(--color-surface-1);
+  --dark-color: var(--color-surface-2);
+  --text-color: var(--color-text-primary);
+
+  /* typography */
+  --body-font-family: 'Adobe Clean', body-font-fallback, sans-serif;
+  --heading-font-family: 'Adobe Clean', heading-font-fallback, sans-serif;
+  --code-font-family: 'Source Code Pro', monospace;
+
+  /* body sizes */
+  --body-font-size-xl: 22px;
+  --body-font-size-l: 18px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
+
+  /* heading sizes */
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 32px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
+
+  /* spacing scale */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-s: 12px;
+  --spacing-m: 16px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+
+  /* grid */
+  --grid-max-width: 1280px;
+  --grid-padding: 24px;
+
+  /* component tokens */
+  --nav-height: 64px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border-radius-pill: 100px;
+  --box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  --box-shadow-hover: 0 4px 16px rgb(0 0 0 / 20%);
+
+  /* animation */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 400ms ease;
+}
+
+@media (width >= 900px) {
+  :root {
+    --body-font-size-xl: 24px;
+    --body-font-size-l: 20px;
+    --body-font-size-m: 18px;
+    --heading-font-size-xxl: 60px;
+    --heading-font-size-xl: 48px;
+    --heading-font-size-l: 36px;
+    --heading-font-size-m: 28px;
+    --grid-padding: 32px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Reset & base
+   ------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: none;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  height: var(--nav-height);
+}
+
+/* -------------------------------------------------------------------------
+   Typography
+   ------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.8em 0 0.25em;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  line-height: 1.2;
+  scroll-margin-top: 80px;
+}
+
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+p, dl, ol, ul, blockquote { margin: 0.8em 0 0.4em; }
+
+code, pre {
+  font-family: var(--code-font-family);
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: var(--spacing-m);
+  border-radius: var(--border-radius-m);
+  background: var(--color-surface-1);
+  overflow-x: auto;
+}
+
+/* -------------------------------------------------------------------------
+   Links
+   ------------------------------------------------------------------------- */
+
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+/* -------------------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------------------- */
+
+.button, button, input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: 0.6em 1.4em;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-pill);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.button.primary, a.button.primary {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+}
+
+.button.primary:hover, a.button.primary:hover {
+  background-color: var(--color-brand-primary-hover);
+  text-decoration: none;
+}
+
+.button.secondary, a.button.secondary {
+  background-color: transparent;
+  border-color: currentcolor;
+  color: var(--color-text-primary);
+}
+
+.button.secondary:hover, a.button.secondary:hover {
+  background-color: var(--color-surface-1);
+  text-decoration: none;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------------------------------------------
+   Images
+   ------------------------------------------------------------------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------------------------
+   Icons
+   ------------------------------------------------------------------------- */
+
+.icon img, .icon svg {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------
+   Sections
+   ------------------------------------------------------------------------- */
+
+main > .section {
+  margin: var(--spacing-xxl) 0;
+}
+
+main > .section > div {
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+/* section variants */
+main .section.light {
+  background-color: var(--color-surface-1);
+  margin: 0;
+  padding: var(--spacing-xxl) 0;
+}
+
+main .section.dark {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+  margin: 0;
+  padding: var(--spacing-xxl) 0;
+}
+
+main .section.center {
+  text-align: center;
+}
+
+main .section.full-width > div {
+  max-width: none;
+  padding: 0;
+}

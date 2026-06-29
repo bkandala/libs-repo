@@ -1,0 +1,186 @@
+header .nav-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-surface-2);
+}
+
+header nav {
+  display: grid;
+  grid-template: 'hamburger brand tools' var(--nav-height) / auto 1fr auto;
+  align-items: center;
+  gap: 0 var(--spacing-l);
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-padding);
+  height: var(--nav-height);
+  overflow: hidden;
+}
+
+header nav[aria-expanded='true'] {
+  grid-template:
+    'hamburger brand' var(--nav-height)
+    'sections sections' 1fr
+    'tools tools' auto / auto 1fr;
+  min-height: 100dvh;
+  overflow: visible;
+}
+
+@media (width >= 900px) {
+  header nav,
+  header nav[aria-expanded='true'] {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+/* brand */
+header .nav-brand {
+  grid-area: brand;
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+}
+
+header .nav-brand a { color: var(--color-text-primary); }
+header .nav-brand img { height: 32px; width: auto; }
+
+/* hamburger */
+header .nav-hamburger {
+  grid-area: hamburger;
+}
+
+header .nav-hamburger button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+header .nav-hamburger-icon,
+header .nav-hamburger-icon::before,
+header .nav-hamburger-icon::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentcolor;
+  border-radius: 2px;
+  position: relative;
+  transition: transform var(--transition-base);
+}
+
+header .nav-hamburger-icon::before,
+header .nav-hamburger-icon::after {
+  content: '';
+  position: absolute;
+}
+
+header .nav-hamburger-icon::before { top: -6px; }
+header .nav-hamburger-icon::after { top: 6px; }
+
+header nav[aria-expanded='true'] .nav-hamburger-icon { background: transparent; }
+header nav[aria-expanded='true'] .nav-hamburger-icon::before { transform: rotate(45deg) translate(4px, 4px); }
+header nav[aria-expanded='true'] .nav-hamburger-icon::after { transform: rotate(-45deg) translate(4px, -4px); }
+
+@media (width >= 900px) {
+  header .nav-hamburger { display: none; }
+}
+
+/* sections */
+header .nav-sections {
+  grid-area: sections;
+  display: none;
+  align-self: start;
+}
+
+header nav[aria-expanded='true'] .nav-sections {
+  display: block;
+}
+
+@media (width >= 900px) {
+  header .nav-sections {
+    display: flex;
+    flex: 1;
+    align-self: center;
+  }
+}
+
+header .nav-sections ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width >= 900px) {
+  header .nav-sections > ul {
+    display: flex;
+    gap: var(--spacing-l);
+  }
+}
+
+header .nav-sections a {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  padding: var(--spacing-xs) 0;
+  display: block;
+}
+
+header .nav-sections a:hover { color: var(--link-color); text-decoration: none; }
+
+/* dropdowns */
+header .nav-drop { position: relative; }
+
+header .nav-drop > a::after {
+  content: '';
+  display: inline-block;
+  margin-left: 6px;
+  border: 4px solid transparent;
+  border-top-color: currentcolor;
+  vertical-align: middle;
+  transition: transform var(--transition-fast);
+}
+
+header .nav-drop[aria-expanded='true'] > a::after {
+  transform: rotate(180deg);
+}
+
+header .nav-drop ul {
+  display: none;
+  padding: var(--spacing-s) 0;
+  background: var(--color-background);
+  border-radius: var(--border-radius-m);
+  box-shadow: var(--box-shadow);
+}
+
+@media (width >= 900px) {
+  header .nav-drop[aria-expanded='true'] > ul {
+    display: block;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 180px;
+    z-index: 10;
+  }
+}
+
+header .nav-drop ul a { padding: var(--spacing-xs) var(--spacing-m); }
+
+/* tools */
+header .nav-tools {
+  grid-area: tools;
+  display: none;
+}
+
+header nav[aria-expanded='true'] .nav-tools,
+header .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+}

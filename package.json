@@ -1,0 +1,19 @@
+{
+  "name": "libs-repo",
+  "version": "1.0.0",
+  "description": "Shared EDS component library for da.live powered sites",
+  "type": "module",
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "libs": "node scripts/serve-libs.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint 'libs/**/*.js' 'scripts/**/*.js' 'blocks/**/*.js'",
+    "lint:css": "stylelint 'libs/**/*.css' 'styles/**/*.css'"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

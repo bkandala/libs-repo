@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "aem-eds": {
+      "command": "npx",
+      "args": ["-y", "@adobe/aem-eds-mcp"],
+      "env": {
+        "AEM_HOST": "https://main--libs-repo--<your-org>.aem.live",
+        "AEM_DEV_HOST": "https://main--libs-repo--<your-org>.aem.page"
+      }
+    },
+    "da-live": {
+      "command": "npx",
+      "args": ["-y", "@da-live/mcp-server"],
+      "env": {
+        "DA_ORG": "<your-org>",
+        "DA_REPO": "libs-repo",
+        "DA_API": "https://admin.da.live"
+      }
+    }
+  }
+}

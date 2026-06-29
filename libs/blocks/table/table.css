@@ -1,0 +1,26 @@
+.table { overflow-x: auto; }
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-s);
+}
+
+.table th, .table td {
+  padding: var(--spacing-m) var(--spacing-l);
+  text-align: left;
+  border-bottom: 1px solid var(--color-surface-2);
+}
+
+.table thead th {
+  background: var(--color-surface-1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--body-font-size-xs);
+}
+
+.table tbody tr:hover { background: var(--color-surface-1); }
+
+.table.striped tbody tr:nth-child(even) { background: var(--color-surface-1); }

@@ -1,0 +1,12 @@
+{
+  "project": "libs-repo",
+  "plugins": [
+    {
+      "id": "da-live-edit",
+      "title": "Edit in da.live",
+      "url": "https://da.live/edit#/{org}/{repo}{path}",
+      "passConfig": true,
+      "environments": ["preview", "live", "edit"]
+    }
+  ]
+}
