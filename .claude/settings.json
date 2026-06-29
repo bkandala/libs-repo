@@ -4,15 +4,15 @@
       "command": "npx",
       "args": ["-y", "@adobe/aem-eds-mcp"],
       "env": {
-        "AEM_HOST": "https://main--libs-repo--<your-org>.aem.live",
-        "AEM_DEV_HOST": "https://main--libs-repo--<your-org>.aem.page"
+        "AEM_HOST": "https://main--libs-repo--bkandala.aem.live",
+        "AEM_DEV_HOST": "https://main--libs-repo--bkandala.aem.page"
       }
     },
     "da-live": {
       "command": "npx",
       "args": ["-y", "@da-live/mcp-server"],
       "env": {
-        "DA_ORG": "<your-org>",
+        "DA_ORG": "bkandala",
         "DA_REPO": "libs-repo",
         "DA_API": "https://admin.da.live"
       }
