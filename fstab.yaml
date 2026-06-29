@@ -1,4 +1,3 @@
 mountpoints:
   /:
-    url: https://da.live/edit#/bkandala/libs-repo
-    type: markup
+    url: https://content.da.live/bkandala/libs-repo
