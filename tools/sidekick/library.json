@@ -1,0 +1,44 @@
+{
+  "blocks": [
+    {
+      "name": "Marquee",
+      "path": "/docs/library/marquee"
+    },
+    {
+      "name": "Cards",
+      "path": "/docs/library/cards"
+    },
+    {
+      "name": "Columns",
+      "path": "/docs/library/columns"
+    },
+    {
+      "name": "Carousel",
+      "path": "/docs/library/carousel"
+    },
+    {
+      "name": "Accordion",
+      "path": "/docs/library/accordion"
+    },
+    {
+      "name": "Modal",
+      "path": "/docs/library/modal"
+    },
+    {
+      "name": "Table",
+      "path": "/docs/library/table"
+    },
+    {
+      "name": "Video",
+      "path": "/docs/library/video"
+    },
+    {
+      "name": "Fragment",
+      "path": "/docs/library/fragment"
+    },
+    {
+      "name": "Section Metadata",
+      "path": "/docs/library/section-metadata"
+    }
+  ]
+}

@@ -1,12 +1,24 @@
 {
   "project": "libs-repo",
+  "host": "main--libs-repo--bkandala.aem.live",
+  "previewHost": "main--libs-repo--bkandala.aem.page",
   "plugins": [
     {
-      "id": "da-live-edit",
-      "title": "Edit in da.live",
-      "url": "https://da.live/edit#/{org}/{repo}{path}",
-      "passConfig": true,
-      "environments": ["preview", "live", "edit"]
+      "id": "da-edit",
+      "title": "Edit",
+      "icon": "edit",
+      "url": "https://da.live/edit#/bkandala/libs-repo{path}",
+      "environments": ["dev", "preview", "live"],
+      "isPalette": false
+    },
+    {
+      "id": "library",
+      "title": "Library",
+      "icon": "library",
+      "url": "/tools/sidekick/library.html",
+      "environments": ["dev", "preview"],
+      "isPalette": true,
+      "paletteRect": "top: 5px; bottom: 5px; right: 5px; width: 400px;"
     }
   ]
 }
