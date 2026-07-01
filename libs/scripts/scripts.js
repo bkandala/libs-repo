@@ -104,4 +104,12 @@ export async function loadPage(conf = {}) {
   loadDelayed(config);
 }
 
+/* Place at the very bottom of scripts.js */
+(async function loadDa() {
+  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
+  // eslint-disable-next-line import/no-unresolved
+  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
+}());
+
+
 export { loadFragment, getMetadata, loadStyle, loadScript };
